@@ -14,7 +14,7 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
    
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('โปรโมชั่นเดือนกรกฎาคม 2561 ซื้อ 5 ไม่มีของแถมมมมมม');
-$response = $bot->pushMessage($pushID, $replyData);
+$response = $bot->pushMessage($pushID, $textMessageBuilder);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
