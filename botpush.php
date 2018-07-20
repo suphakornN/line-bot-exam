@@ -47,8 +47,8 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 // $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีพวกเรา vgenz');
-                    $picFullSize = 'https://www.mywebsite.com/imgsrc/photos/f/simpleflower';
-                    $picThumbnail = 'https://www.mywebsite.com/imgsrc/photos/f/simpleflower/240';
+                    $picFullSize = 'http://vgenz.welovepos.net/public/img/bg-1.png';
+                    $picThumbnail = 'http://vgenz.welovepos.net/public/img/bg-1.png';
                     $replyData = new ImageMessageBuilder($picFullSize,$picThumbnail);
 $response = $bot->pushMessage($pushID, $replyData);
 
