@@ -57,7 +57,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
                                     ),
                                     new MessageTemplateActionBuilder(
                                         'ไม่',
-                                        ''
+                                        'ขอคุณครับ'
                                     )
                                 )
                         )
