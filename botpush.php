@@ -47,11 +47,21 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 // $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีพวกเรา vgenz');
-                    $placeName = "ที่ตั้งร้าน";
-                    $placeAddress = "แขวง พลับพลา เขต วังทองหลาง กรุงเทพมหานคร ประเทศไทย";
-                    $latitude = 13.780401863217657;
-                    $longitude = 100.61141967773438;
-                    $replyData = new LocationMessageBuilder($placeName, $placeAddress, $latitude ,$longitude);  
+                    $replyData = new TemplateMessageBuilder('Confirm Template',
+                        new ConfirmTemplateBuilder(
+                                'Confirm template builder',
+                                array(
+                                    new MessageTemplateActionBuilder(
+                                        'Yes',
+                                        'Text Yes'
+                                    ),
+                                    new MessageTemplateActionBuilder(
+                                        'No',
+                                        'Text NO'
+                                    )
+                                )
+                        )
+                    );
 $response = $bot->pushMessage($pushID, $replyData);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
