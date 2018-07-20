@@ -17,7 +17,7 @@ $placeName = "ที่ตั้งร้าน";
 $placeAddress = "แขวง พลับพลา เขต วังทองหลาง กรุงเทพมหานคร ประเทศไทย";
 $latitude = 13.780401863217657;
 $longitude = 100.61141967773438;
-$replyData = new LocationMessageBuilder($placeName, $placeAddress, $latitude ,$longitude);      
+$replyData = new \LINE\LINEBot\MessageBuilder\LocationMessageBuilder($placeName, $placeAddress, $latitude ,$longitude);      
 
 //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('โปรโมชั่นเดือนกรกฎาคม 2561 ซื้อ 5 ไม่มีของแถมมมมมม');
 $response = $bot->pushMessage($pushID, $replyData);
