@@ -49,15 +49,15 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 // $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีพวกเรา vgenz');
                     $replyData = new TemplateMessageBuilder('Confirm Template',
                         new ConfirmTemplateBuilder(
-                                'Confirm template builder',
+                                'สมัครรับโปรโมชั่นจากทางร้านค้า',
                                 array(
                                     new MessageTemplateActionBuilder(
-                                        'Yes',
-                                        'Text Yes'
+                                        'ใช่',
+                                        'ขอคุณครับ'
                                     ),
                                     new MessageTemplateActionBuilder(
-                                        'No',
-                                        'Text NO'
+                                        'ไม่',
+                                        ''
                                     )
                                 )
                         )
