@@ -47,21 +47,9 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 // $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีพวกเรา vgenz');
-                    $replyData = new TemplateMessageBuilder('Confirm Template',
-                        new ConfirmTemplateBuilder(
-                                'สมัครรับโปรโมชั่นจากทางร้านค้า',
-                                array(
-                                    new MessageTemplateActionBuilder(
-                                        'ใช่',
-                                        'ขอคุณครับ'
-                                    ),
-                                    new MessageTemplateActionBuilder(
-                                        'ไม่',
-                                        'ขอคุณครับ'
-                                    )
-                                )
-                        )
-                    );
+                    $stickerID = 22;
+                    $packageID = 2;
+                    $replyData = new StickerMessageBuilder($packageID,$stickerID);
 $response = $bot->pushMessage($pushID, $replyData);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
