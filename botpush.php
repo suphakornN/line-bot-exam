@@ -47,9 +47,21 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 // $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีพวกเรา vgenz');
-                    $stickerID = 22;
-                    $packageID = 2;
-                    $replyData = new StickerMessageBuilder($packageID,$stickerID);
+                    $replyData = new TemplateMessageBuilder('Confirm Template',
+                        new ConfirmTemplateBuilder(
+                                'Confirm template builder',
+                                array(
+                                    new MessageTemplateActionBuilder(
+                                        'Yes',
+                                        '1001'
+                                    ),
+                                    new MessageTemplateActionBuilder(
+                                        'No',
+                                        'Text NO'
+                                    )
+                                )
+                        )
+                    );
 $response = $bot->pushMessage($pushID, $replyData);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
