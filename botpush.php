@@ -47,9 +47,11 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 // $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีพวกเรา vgenz');
-                    $picFullSize = 'http://vgenz.welovepos.net/public/img/bg-1.png';
-                    $picThumbnail = 'http://vgenz.welovepos.net/public/img/bg-1.png';
-                    $replyData = new ImageMessageBuilder($picFullSize,$picThumbnail);
+                    $placeName = "ที่ตั้งร้าน";
+                    $placeAddress = "แขวง พลับพลา เขต วังทองหลาง กรุงเทพมหานคร ประเทศไทย";
+                    $latitude = 13.780401863217657;
+                    $longitude = 100.61141967773438;
+                    $replyData = new LocationMessageBuilder($placeName, $placeAddress, $latitude ,$longitude);  
 $response = $bot->pushMessage($pushID, $replyData);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
